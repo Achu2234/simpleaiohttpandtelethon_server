@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>DML</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <style>
+        .w3-button {
+            width: 90%
+        }
+
+        #soloiv {
+            visibility: hidden
+        }
+    </style>
+
+    <div class="w3-container">
+        <p align="left">
+            Validating User: <br>Redirecting in <span id="countdown">15</span> seconds</p>
+        <h3 align="center"></h3>
+
+        <div id="soloiv">
+            <center>
+		    <p><a href= "../verified?chat=$chat&mess_id=$mess_id" class="w3-button w3-green">Login</a></p>
+            </center>
+        </div>
+    </div>
+    
+    <!-- popellers ads -->
+
+    <script async='async' data-cfasync='false' src='//otrwaram.com/apu.php?zoneid=2831143'
+        type='text/javascript'> </script>
+
+
+    <!-- popellers multiAds code below -->
+    <script>(function (s, u, z, p) { s.src = u, s.setAttribute('data-zone', z), p.appendChild(s); })(document.createElement('script'), 'https://iclickcdn.com/tag.min.js', 3706263, document.body || document.documentElement)</script>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            document.getElementById("soloiv").style.visibility = "visible";
+        }, 5000);
+    </script>
+    <script type='text/javascript'>
+        $("body").contents().find("a").each(function () {
+            $(this).on("contextmenu", function () {
+                return false;
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+        // Total seconds to wait
+        var seconds = 15;
+
+        function countdown() {
+            seconds = seconds - 1;
+            if (seconds < 0) {
+                // Chnage your redirection link here
+		window.location = "../verified?chat=$chat&mess_id=$mess_id";
+            } else {
+                // Update remaining seconds
+                document.getElementById("countdown").innerHTML = seconds;
+                // Count down using javascript
+                window.setTimeout("countdown()", 1000);
+            }
+        }
+
+        // Run countdown function
+        countdown();
+
+    </script>
+</body>
+
+</html>
