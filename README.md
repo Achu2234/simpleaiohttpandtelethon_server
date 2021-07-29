@@ -1,4 +1,4 @@
-## simpleaiohttpandtelethon_server
+## simple aiohttp and telethon server
 Web server with aiohttp and telethon
 
 **Available**
