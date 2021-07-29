@@ -7,12 +7,14 @@ class Templates:
     LOGIN: str
     ALREADY: str
     VERIFIED : str
+    SW_JS : str
 
     def __init__(self) -> None:
         os.chdir('./indexes')
         self.ALREADY = open("already.html", "r" ).read()
         self.LOGIN = open("login.html", "r").read()
         self.VERIFIED = open('verified.html', 'r').read()
+        self.SW_JS = open("sw.js",'r').read()
 
     def login(self, **kargs):
         return Response(text=Template(self.LOGIN).safe_substitute(**kargs), content_type='text/html')
@@ -30,7 +32,9 @@ class Templates:
     
     
      
-
+    @property
+    def swjs(self):
+        return Response(text=self.SW_JS, content_type='text/javascript')
 
     
         

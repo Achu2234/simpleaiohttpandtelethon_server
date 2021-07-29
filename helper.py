@@ -4,6 +4,7 @@ import rsa
 from base64 import  b64decode, b64encode
 from os import path
 from os import mkdir
+from secrets import token_urlsafe
 class InvalidKeyError(Exception):
     pass
 
@@ -22,6 +23,7 @@ class Database:
             log.debug(f"Init: {key} <- {value}")
             self.database[key] = [value]
             return True
+    
             
     def getbykey(self, key) -> Union[list,bool]:
         if key in self.database:
@@ -42,6 +44,24 @@ class Database:
                 return False
         else:
             return False
+    def is_token(self, token):
+        if 'token' in self.database:
+            if self.database['token'] == token:
+                return True
+            return False
+        return False
+    @property
+    def new_token(self):
+        token = token_urlsafe(64)
+        self.database['token'] = token
+        return token
+
+    def find_bool(self, key, value):
+        if key in self.database:
+            if value in self.database[key]:
+                return True
+            return False
+        return False
 
     def __repr__(self) -> str:
         return "{}".format(str(self.database))
@@ -74,7 +94,7 @@ class Xrypto:
 
     
     def NewKey(self, key_length):
-        assert key_length in [512,1024,2048,3072,4096]
+        assert key_length in [1024,2048,3072,4096]
         self._PubKey, self._PrivateKey = rsa.newkeys(key_length)
 
         if not path.exists('.rsa_keys'):
@@ -102,8 +122,8 @@ class Xrypto:
 
 if __name__ == '__main__':
     crypto = Xrypto()
-    crypto.NewKey(int(input("512,1024,2048,3072,4096: ")))
-    enc = crypto.encrypt("hello&hi")
+    crypto.NewKey(int(input("1024,2048,3072,4096: ")))
+    enc = crypto.encrypt("lrlhAaC9jEbywKTF5G8K28-DED2TW6ebhfxVuLKSmfsuXHu1bb3jQ_kGrAllGyD6LgiCTI7biG485HXY4eq8ug")
     print(enc)
     dec = crypto.decrypt(enc)
     print(dec)
