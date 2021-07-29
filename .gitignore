@@ -3,6 +3,6 @@
 ./indexes/sess.session
 ./indexes/.rsa_keys
 ./sess.session
-
+./__pycache__/
 
 
