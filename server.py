@@ -1,6 +1,6 @@
 from aiohttp import web
 from telethon import TelegramClient
-from config import Clients as VAR
+from config import Clients
 from templates import Templates
 from aiohttp.web import Response as render
 from aiohttp.web import json_response as jsonr
@@ -11,9 +11,12 @@ import os
 db = Database()
 crypto = Xrypto()
 
-# crypto.NewKey(1024) //uncomment for first time
+# crypto.NewKey(1024) #uncomment for first time
 crypto.importKeyFiles('./.rsa_keys/public.pem', './.rsa_keys/private.pem') 
 temp = Templates()
+VAR = Clients()
+VAR.initenv() # init from env
+# VAR.init() #init from here
 client = TelegramClient('sess',VAR.API_ID, VAR.API_HASH)
 client.start(bot_token=VAR.BOT_TOKEN)
 loop = client.loop
