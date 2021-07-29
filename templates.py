@@ -45,7 +45,7 @@ class Templates:
 if __name__ == '__main__':
     temp = Templates()
     # print(temp.HOME % {'status': True})
-    print(temp.login(1234))
+    # print(temp.login(1234))
     print(temp.verified("hello"))
 
     

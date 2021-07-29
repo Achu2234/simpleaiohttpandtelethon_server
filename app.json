@@ -1,0 +1,39 @@
+{
+
+  "name": "Simple Asynchronous Server",
+
+  "description": "simple Asynchronous user verification server",
+
+  "keywords": ["python", "aiohttp", "telethon"],
+
+  "repository": "",
+
+  "env": {
+
+    "BOT_TOKEN": {
+
+      "desciption": "Your bot token, as a string.",
+
+      "value": ""
+
+    },
+
+    "API_ID": {
+
+      "description": "Get this value from https://my.telegram.org",
+
+      "value": ""
+
+    },
+
+    "API_HASH": {
+
+      "description": "Get this value from https://my.telegram.org",
+
+      "value": ""
+
+    }
+
+  }
+
+}

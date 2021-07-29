@@ -1,4 +1,8 @@
 *session
 .rsa_keys
+./indexes/sess.session
+./indexes/.rsa_keys
+./sess.session
+
 
 
