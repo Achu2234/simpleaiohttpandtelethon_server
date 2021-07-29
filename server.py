@@ -1,4 +1,3 @@
-from asyncio import events
 from aiohttp import web
 from telethon import TelegramClient
 from config import Clients as VAR
@@ -34,8 +33,9 @@ async def login(request):
     try:
         chat =   request.rel_url.query['chat']
         mess_id = request.rel_url.query['mess_id']
-        mess_id_ = crypto.decrypt(mess_id)
-        mess_id_ = int(mess_id_)
+        # mess_id_ = crypto.decrypt(mess_id)
+        # mess_id_ = int(mess_id_)
+        mess_id_ = int(mess_id)
         chat_ = crypto.decrypt(chat)
         chat_ = chat_ if not chat_.isdigit() else int(chat_)
 
@@ -58,8 +58,9 @@ async def verified(request):
     try:
         chat =   request.rel_url.query['chat']
         mess_id = request.rel_url.query['mess_id']
-        mess_id_ = crypto.decrypt(mess_id)
-        mess_id_ = int(mess_id_)
+        # mess_id = crypto.decrypt(mess_id)
+        # mess_id_ = int(mess_id_)
+        mess_id_ = int(mess_id)
         chat_ = crypto.decrypt(chat)
         chat_ = chat_ if not chat_.isdigit() else int(chat_)
         await client.edit_message(chat_, mess_id_, "Now you are verified")
