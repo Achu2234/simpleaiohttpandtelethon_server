@@ -16,7 +16,7 @@ crypto = Xrypto()
 crypto.importKeyFiles('./.rsa_keys/public.pem', './.rsa_keys/private.pem') 
 temp = Templates()
 client = TelegramClient('sess',VAR.API_ID, VAR.API_HASH)
-client.start(bot_token=VAR.API_TOKEN)
+client.start(bot_token=VAR.BOT_TOKEN)
 loop = client.loop
 
 requests = web.RouteTableDef()
