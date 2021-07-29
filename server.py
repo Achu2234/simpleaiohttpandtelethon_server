@@ -68,7 +68,7 @@ async def verified(request):
         return render(text=str(e), status=400)
     
 
-@requests.get("/sw.ja")
+@requests.get("/sw.js")
 async def sw_js(_):
     return temp.swjs
 
